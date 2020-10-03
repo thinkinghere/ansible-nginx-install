@@ -1,0 +1,16 @@
+---
+- name: unzip nginx parklet to remote hosts
+  unarchive: src=nginx-1.18.0.tar.gz dest={{ download_dir }}
+- name: make install nginx
+  shell: cd {{ download_dir }}/nginx-1.18.0/ && ./configure --prefix={{ app_dir }}/nginx --with-http_ssl_module --with-http_stub_status_module && make && make install
+- name: copy a test html file to remote hosts
+  copy: src=imooc.html dest={{ app_dir }}/nginx/html/
+# - name: copy nginx config file to remote hosts
+#  template: src=test.conf dest={{ app_dir }}/nginx/conf/conf.d/nginx.conf
+#  notify:
+#    - restart nginx service
+- name: copy nginx ssytemd file 
+  copy: src=nginx.service dest=/usr/lib/systemd/system/
+
+- name: ensure nginx service is running
+  service: name=nginx state=started

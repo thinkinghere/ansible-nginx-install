@@ -1,0 +1,4 @@
+---
+- name: install basic parket for nginx
+  yum:
+     name={{ nginx_packages  }} state=latest

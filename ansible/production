@@ -1,0 +1,6 @@
+[nginx_hosts]
+192.168.0.1:22 ansible_ssh_user=root ansible_ssh_key_file=~/.ssh/id_rsa
+192.168.0.2:22 ansible_ssh_user=root ansible_ssh_key_file=~/.ssh/id_rsa
+[nginx_hosts:vars]
+filename = hostname
+

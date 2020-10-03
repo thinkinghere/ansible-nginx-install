@@ -1,0 +1,7 @@
+---
+- name: install basic parket for nginx
+  #yum: name: gcc  state=latest
+  yum: name={{ item  }} state=latest
+  with_items:
+    - pcre
+    - pcredevel

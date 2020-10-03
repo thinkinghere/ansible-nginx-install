@@ -1,0 +1,5 @@
+nginx_packages:
+  - gcc
+  - pcre
+  - pcre-devel
+  - openssl-devel
